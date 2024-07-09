@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage[margin=2cm]{geometry}
+\setlength{\parindent}{0pt}% No paragraph indent
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\pagestyle{empty}% No page headers/footers
+\usepackage[utf8]{inputenc}
+$if(babel)$
+\usepackage[$babel$]{babel}
+$endif$
+
+\usepackage{array}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+\hfill
+\begin{tabular}{l@{}}
+$if(today)$
+  $today$\\[10pt]
+$else$
+  \today\\[10pt]
+$endif$
+$for(return-address)$$return-address$$sep$\\$endfor$
+\end{tabular}
+
+\bigskip% or \vspace{20pt}
+
+\begin{tabular}{@{}l}
+$for(address)$$address$$sep$\\$endfor$
+\end{tabular}
+
+\bigskip
+\bigskip
+
+$if(subject)$
+\textbf{$subject$}
+$endif$
+
+\bigskip
+\bigskip
+
+$if(opening)$
+$opening$
+$endif$
+
+\bigskip
+
+$body$
+
+\bigskip\bigskip\bigskip
+
+$if(closing)$
+$closing$
+$endif$
+
+\bigskip\bigskip\bigskip
+\bigskip
+
+$if(author)$
+$author$
+$endif$
+
+$if(authors)$
+\begin{tabular}{m{5cm}m{5cm}}
+  $for(authors)$$authors$$sep$&$endfor$
+\end{tabular}
+$endif$
+
+
+\bigskip\bigskip
+
+\begin{tabular}{@{}l}
+$for(attachments)$$attachments$$sep$\\$endfor$
+\end{tabular}
+
+\end{document}

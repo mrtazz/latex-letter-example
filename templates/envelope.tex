@@ -1,0 +1,16 @@
+\documentclass[12pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage{soulutf8}
+\usepackage{geometry}
+$if(babel)$
+\usepackage[$babel$]{babel}
+$endif$
+\geometry{paperheight=110mm,paperwidth=220mm}
+\usepackage{graphics}
+\usepackage[dlenvelope,noprintbarcodes,norotateenvelopes,centerenvelopes,printreturnaddress]{envlab}
+\makelabels
+\begin{document}
+\startlabels
+\mlabel{$for(return-address)$$return-address$$sep$\\$endfor$}
+{$for(address)${$address$}$sep$\\$endfor$}
+\end{document}
